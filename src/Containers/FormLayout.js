@@ -14,10 +14,11 @@ import * as yup from 'yup';
 
 const validationSchema = yup.object({
     firstName: yup.string()
-        .max(25, 'Must be 15 characters or less')
+        .max(25, 'Must be 15 characters or less').matches(/^[A-Za-z]+$/,"Name cannot contain numbers")
         .required('Required'),
     lastName: yup.string()
         .max(20, 'Must be 20 characters or less')
+        .matches(/^[A-Za-z]+$/,"Name cannot contain numbers")
         .required('Required'),
     email: yup
         .string()
